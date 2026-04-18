@@ -1,0 +1,21 @@
+name: AI Generated Workflow
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Show Commit Info
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          git log -1 --oneline
+
+      - name: Run Basic Test
+        run: echo "Build successful 🚀"
